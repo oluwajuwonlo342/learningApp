@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning A-Z</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f0f8ff;
+    }
+
+    .card {
+      border: 2px solid #333;
+      padding: 40px;
+      border-radius: 20px;
+      display: inline-block;
+      background: white;
+      box-shadow: 2px 2px 10px #aaa;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .letter {
+      font-size: 60px;
+      color: #2e8b57;
+    }
+
+    .word {
+      font-size: 30px;
+      margin-top: 10px;
+    }
+
+    .btns {
+      margin-top: 30px;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img id="image" src="Apple.jpeg" alt="image" />
+    <div class="letter" id="letter">A</div>
+    <div class="word" id="word">Apple</div>
+  </div>
+
+  <div class="btns">
+    <button id="prevBtn" onclick="showPrev()" disabled>Prev</button>
+    <button id="nextBtn" onclick="showNext()">Next</button>
+  </div>
+
+  <script>
+    const data = [
+      { letter: "A", word: "Apple", image: "Apple.jpeg" },
+      { letter: "B", word: "Ball", image: "WhatsApp Image 2025-08-06 at 22.28.58 (1).jpeg" },
+      { letter: "C", word: "Cat", image: "WhatsApp Image 2025-08-06 at 22.28.58.jpeg" },
+      { letter: "D", word: "Dog", image: "dog.jpeg" },
+      { letter: "E", word: "Elephant", image: "elephant.jpeg" },
+      { letter: "F", word: "Fish", image: "fish.jpeg" },
+      { letter: "G", word: "Giraffe", image: "giraffe.jpeg" },
+      { letter: "H", word: "Hat", image: "hat.jpeg" },
+      { letter: "I", word: "Ice cream", image: "WhatsApp Image 2025-08-06 at 23.18.15.jpeg" },
+      { letter: "J", word: "Jug", image: "WhatsApp Image 2025-08-07 at 12.13.57 (2).jpeg" },
+      { letter: "K", word: "Kite", image: "WhatsApp Image 2025-08-07 at 12.13.57 (1).jpeg" },
+      { letter: "L", word: "Lion", image: "WhatsApp Image 2025-08-07 at 12.13.57.jpeg" },
+      { letter: "M", word: "Monkey", image: "WhatsApp Image 2025-08-07 at 12.30.06.jpeg" },
+      { letter: "N", word: "Nest", image: "WhatsApp Image 2025-08-07 at 12.30.06 (1).jpeg" },
+      { letter: "O", word: "Orange", image: "WhatsApp Image 2025-08-07 at 12.30.06 (2).jpeg" },
+      { letter: "P", word: "Parrot", image: "WhatsApp Image 2025-08-07 at 12.30.07.jpeg" },
+      { letter: "Q", word: "Queen", image: "WhatsApp Image 2025-08-07 at 12.30.07 (1).jpeg" },
+      { letter: "R", word: "Rabbit", image: "WhatsApp Image 2025-08-07 at 12.48.00.jpeg" },
+      { letter: "S", word: "Sun", image: "WhatsApp Image 2025-08-07 at 12.41.55.jpeg" },
+      { letter: "T", word: "Tiger", image: "WhatsApp Image 2025-08-07 at 12.41.55 (1).jpeg" },
+      { letter: "U", word: "Umbrella", image: "WhatsApp Image 2025-08-07 at 12.41.55 (2).jpeg" },
+      { letter: "V", word: "Violin", image: "WhatsApp Image 2025-08-07 at 12.41.55 (3).jpeg" },
+      { letter: "W", word: "Watch", image: "WhatsApp Image 2025-08-07 at 12.41.56.jpeg" },
+      { letter: "X", word: "Xylophone", image: "WhatsApp Image 2025-08-07 at 12.41.56 (1).jpeg" },
+      { letter: "Y", word: "Yacht", image: "WhatsApp Image 2025-08-07 at 12.41.56 (2).jpeg" },
+      { letter: "Z", word: "Zebra", image: "WhatsApp Image 2025-08-07 at 12.41.54.jpeg" }
+    ];
+
+    let index = 0;
+
+    function updateCard() {
+      document.getElementById("letter").innerHTML = data[index].letter;
+      document.getElementById("word").innerHTML = data[index].word;
+      document.getElementById("image").src = data[index].image;
+
+      document.getElementById("prevBtn").disabled = index === 0;
+      document.getElementById("nextBtn").disabled = index === data.length - 1;
+    }
+
+    function showNext() {
+      if (index < data.length - 1) {
+        index++;
+        updateCard();
+      }
+    }
+
+    function showPrev() {
+      if (index > 0) {
+        index--;
+        updateCard();
+      }
+    }
+  </script>
+
+</body>
+</html>
